@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_main"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@android:color/black"
@@ -14,5 +15,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteX="8dp" />
+        tools:listitem="@layout/movie_item"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
