@@ -3,6 +3,7 @@ package com.geovanedsilveira.netflixremake;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.geovanedsilveira.netflixremake.model.Category;
 import com.geovanedsilveira.netflixremake.model.Movie;
 
 import java.util.ArrayList;
@@ -28,26 +30,37 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view_main);
 
-        List<Movie> movies = new ArrayList<>();
-        for (int i = 0; i < 30 ; i++) {
-            Movie movie = new Movie();
-            movie.setCoverUrl("abd" + i);
-            movies.add(movie);
+        List<Category> categories = new ArrayList<>();
+        for (int j = 0; j < 10; j++) {
+            Category category = new Category();
+            category.setName("cat" + i);
+
+
+            List<Movie> movies = new ArrayList<>();
+            for (int i = 0; i < 30; i++) {
+                Movie movie = new Movie();
+                movie.setCoverUrl(R.drawable.movie);
+                movies.add(movie);
+            }
+
+            category.setMovies(movies);
+            categories.add(category);
+
         }
 
-        mainAdapter = new MainAdapter(movies);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+        mainAdapter = new MainAdapter(categories);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
         recyclerView.setAdapter(mainAdapter);
 
     }
 
-    private static class MovieHolder extends RecyclerView.ViewHolder{
+    private static class MovieHolder extends RecyclerView.ViewHolder {
 
-        private final TextView textViewUrl;
+        final ImageView imageViewCover;
 
         public MovieHolder(@NonNull View itemView){
             super(itemView);
-             textViewUrl = itemView.findViewById(R.id.text_view_url);
+             imageViewCover = itemView.findViewById(R.id.image_view_cover);
         }
     }
 
@@ -56,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         private final List<Movie> movies;
 
         private MainAdapter(List<Movie> movies){
+
             this.movies = movies;
         }
 
@@ -68,11 +82,12 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull MovieHolder holder, int position) {
            Movie movie = movies.get(position);
-           holder.textViewUrl.setText(movie.getCoverUrl());
+           holder.imageViewCover.setImageResource (movie.getCoverUrl());
         }
 
         @Override
         public int getItemCount() {
+
             return movies.size();
         }
     }
