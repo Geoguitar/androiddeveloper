@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="w,3:4"
-        android:src="@drawable/movie"
+        android:src="@drawable/images3"
         />
 
 

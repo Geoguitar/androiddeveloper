@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             List<Movie> movies = new ArrayList<>();
             for (int i = 0; i < 30; i++) {
                 Movie movie = new Movie();
-                movie.setCoverUrl(R.drawable.movie);
+                movie.setCoverUrl(R.drawable.images3);
                 movies.add(movie);
             }
 
