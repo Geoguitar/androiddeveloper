@@ -2,14 +2,14 @@ package com.geovanedsilveira.netflixremake.model;
 
 public class Movie {
 
-    private int coverUrl;
+    private String coverUrl;
 
-    public int  getCoverUrl() {
+    public String getCoverUrl() {
 
         return coverUrl;
     }
 
-    public void setCoverUrl(int coverUrl) {
+    public void setCoverUrl(String coverUrl) {
 
         this.coverUrl = coverUrl;
     }
